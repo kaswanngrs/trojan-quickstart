@@ -11,7 +11,7 @@ function prompt() {
     done
 }
 
-if [[ $(id -u) != 0 ]]; then
+if [[ $(id -u) != 1 ]]; then
     echo Please run this script as root.
     exit 1
 fi
