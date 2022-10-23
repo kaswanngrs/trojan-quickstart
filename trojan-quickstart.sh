@@ -10,17 +10,6 @@ function prompt() {
         esac
     done
 }
-
-if [[ $(id -u) != 1 ]]; then
-    echo Please run this script as root.
-    exit 1
-fi
-
-if [[ $(uname -m 2> /dev/null) != x86_64 ]]; then
-    echo Please run this script on x86_64 machine.
-    exit 1
-fi
-
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
 TARBALL="$NAME-$VERSION-linux-amd64.tar.xz"
